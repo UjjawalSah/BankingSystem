@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Admin_Login_Page")
-public class Admin_Login_Page extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    
-    private static final String SELECT_QUERY = "SELECT * FROM Admin_login_page WHERE username=? AND password=?";
+ 
     
     public Admin_Login_Page() {
         super();
@@ -32,9 +28,7 @@ public class Admin_Login_Page extends HttpServlet {
         ResultSet rs = null;
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingsystem", "root", "BankingSystem@12");
-            stmt = conn.prepareStatement(SELECT_QUERY);
+             
             stmt.setString(1, username);
             stmt.setString(2, password);
             rs = stmt.executeQuery();
