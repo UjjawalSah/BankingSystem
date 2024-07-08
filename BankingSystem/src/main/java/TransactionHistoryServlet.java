@@ -10,20 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/TransactionHistoryServlet")
-public class TransactionHistoryServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        // Database connection parameters
-        String url = "jdbc:mysql://localhost:3306/bankingsystem";
-        String user = "root";
-        String passwordDB = "BankingSystem@12";
+ 
 
         try {
             // Load the MySQL JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
+            
 
             // Connect to the database
             Connection conn = DriverManager.getConnection(url, user, passwordDB);
