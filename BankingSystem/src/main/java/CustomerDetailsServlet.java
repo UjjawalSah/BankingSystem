@@ -7,18 +7,12 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/CustomerDetailsServlet")
-public class CustomerDetailsServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+ 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Retrieve login credentials from the login form
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        // Use the login credentials to fetch details from the admin_dashboard table
-        Map<String, String> customerDetails = getCustomerDetails(username, password);
+       
 
         // Generate HTML response with the customer details
         StringBuilder htmlResponse = new StringBuilder();
