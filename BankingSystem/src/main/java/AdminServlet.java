@@ -12,22 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/AdminServlet")
-public class AdminServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/bankingsystem";
-    private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "BankingSystem@12"; // Replace with your actual database password
-
+ 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD)) {
-            String sql = "SELECT * FROM admin_dashboard";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
+            
 
             // Generate HTML table with the retrieved data
             out.println("<table border='1'>");
@@ -52,9 +44,4 @@ public class AdminServlet extends HttpServlet {
             out.println("Error: " + e.getMessage());
         }
     }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response); // Handle POST requests the same way as GET requests
-    }
-}
+ 
