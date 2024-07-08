@@ -10,23 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-@WebServlet("/BankingOperations")
-public class BankingOperations extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+ 
         
-        // Retrieve form data
-        String accountNumber = request.getParameter("accountNumber");
-        String amount = request.getParameter("amount");
-        String withdrawAmount = request.getParameter("withdrawAmount");
-        String mobileNumber = request.getParameter("mobileNumber");
-        
-        // Database connection parameters
-        String url = "jdbc:mysql://localhost:3306/bankingsystem";
-        String user = "root";
-        String passwordDB = "BankingSystem@12";
+       
         
         try {
             // Load the MySQL JDBC driver
