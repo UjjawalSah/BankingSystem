@@ -16,16 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Admin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    // SQL queries
-    private static final String INSERT_QUERY = "INSERT INTO admin_dashboard(full_name, address, mobile_no, email, account_type, balance, dob, account, id_proff, id_proff_number) VALUES(?,?,?,?,?,?,?,?,?,?)";
-    private static final String PASSWORD_MANAGEMENT_INSERT_QUERY = "INSERT INTO password_management(username, password, email) VALUES(?,?,?)";
-    private static final String CHECK_EXISTENCE_QUERY = "SELECT COUNT(*) FROM admin_dashboard WHERE email = ? OR mobile_no = ? OR id_proff_number = ?";
-
-    public Admin() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter pw = response.getWriter();
         String full_name = request.getParameter("full_name");
         String address = request.getParameter("address");
@@ -49,9 +40,7 @@ public class Admin extends HttpServlet {
         ResultSet rs = null;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingsystem", "root", "BankingSystem@12");
-            con.setAutoCommit(false); // Start transaction
+            
             
             // Check if email, mobile number, or id_proff_number already exists
             ps = con.prepareStatement(CHECK_EXISTENCE_QUERY);
@@ -64,12 +53,7 @@ public class Admin extends HttpServlet {
             if (existingCount > 0) {
                 pw.println("<html><head>");
                 pw.println("<script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>");
-                pw.println("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css\">");
-                pw.println("</head><body>");
-                pw.println("<script>");
-                pw.println("Swal.fire('Failed to register customer.', 'Email, mobile number, or ID proof number already exists.', 'error').then(() => { window.location.href='Admin.html'; });");
-                pw.println("</script>");
-                pw.println("</body></html>");
+              
                 return;
             }
 
@@ -138,9 +122,7 @@ public class Admin extends HttpServlet {
         }
     }
 
-    private String generateAccountNumber() {
-        return "ACC" + System.currentTimeMillis() + (int) (Math.random() * 1000);
-    }
+     
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
