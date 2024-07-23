@@ -7,16 +7,13 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class Emailing {
-
-    private static final String USERNAME = "ujjawalkumar.engstudent1@gmail.com";
-    private static final String PASSWORD = "tyrp deqs vzxk zzxd";
+ 
     private static final String LOGO_PATH = "D:/Eclipse/Banking_System/src/main/webapp/IMG/Samanvay_Logo.png"; // Local path to the logo
 
     private static Session getSession() {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", "true");
+         
         props.put("mail.smtp.starttls.enable", "true");
 
         Authenticator auth = new Authenticator() {
@@ -34,13 +31,7 @@ public class Emailing {
                 + "<img src='cid:logo' alt='Samanvay Bank Logo' style='width: 100%;'><br><br>"
                 + "<div style='border: 1px solid #ddd; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);'>"
                 + "<h2 style='color: #004080; text-shadow: 1px 1px 2px #aaa;'>Dear " + fullName + ",</h2>"
-                + "<p>Your account has been successfully registered.</p>"
-                + "<p><strong>Account Number:</strong> " + accountNo + "</p>"
-                + "<p><strong>Temporary Password:</strong> " + tempPassword + "</p>"
-                + "<p>Thank you for choosing Samanvay Bank.</p>"
-                + "<p>Best regards,<br><span style='color: #004080; font-weight: bold;'>Samanvay Bank Team</span></p>"
-                + "</div></div>";
-        sendEmail(email, subject, body);
+                + " 
     }
 
     public static void sendWithdrawalConfirmationEmail(String fullName, String email, String accountNo, String withdrawAmount, double newBalance) {
@@ -51,27 +42,13 @@ public class Emailing {
                 + "<h2 style='color: #004080; text-shadow: 1px 1px 2px #aaa;'>Dear " + fullName + ",</h2>"
                 + "<p>You have successfully withdrawn an amount of $" + withdrawAmount + " from your account.</p>"
                 + "<p><strong>Account Number:</strong> " + accountNo + "</p>"
-                + "<p><strong>New Balance:</strong> $" + newBalance + "</p>"
-                + "<p>Thank you for banking with us.</p>"
-                + "<p>Best regards,<br><span style='color: #004080; font-weight: bold;'>Samanvay Bank Team</span></p>"
-                + "</div></div>";
-        sendEmail(email, subject, body);
+                + "<p><strong>New 
     }
 
     public static void sendDepositConfirmationEmail(String fullName, String email, String accountNo, String depositAmount, double newBalance) {
         String subject = "Deposit Confirmation - Samanvay Bank";
         String body = "<div style='font-family: Arial, sans-serif;'>"
-                + "<img src='cid:logo' alt='Samanvay Bank Logo' style='width: 100%;'><br><br>"
-                + "<div style='border: 1px solid #ddd; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);'>"
-                + "<h2 style='color: #004080; text-shadow: 1px 1px 2px #aaa;'>Dear " + fullName + ",</h2>"
-                + "<p>You have successfully deposited an amount of $" + depositAmount + " to your account.</p>"
-                + "<p><strong>Account Number:</strong> " + accountNo + "</p>"
-                + "<p><strong>New Balance:</strong> $" + newBalance + "</p>"
-                + "<p>Thank you for banking with us.</p>"
-                + "<p>Best regards,<br><span style='color: #004080; font-weight: bold;'>Samanvay Bank Team</span></p>"
-                + "</div></div>";
-        sendEmail(email, subject, body);
-    }
+                + "<i 
 
     private static void sendEmail(String to, String subject, String body) {
         try {
@@ -110,6 +87,5 @@ public class Emailing {
             e.printStackTrace();
         }
     }
-
     
 }
