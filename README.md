@@ -13,7 +13,6 @@ A secure and efficient **Banking System** designed for seamless account manageme
 - [📌 Usage](#-usage)
 - [🧪 Testing](#-testing)
 - [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
 
 ---
 
@@ -107,11 +106,6 @@ git clone https://github.com/UjjawalSah/BankingSystem.git
 
 ## 🤝 Contributing
 🔹 Contributions are **welcome**! Feel free to **fork, create issues, and submit PRs**.
-
----
-
-## 📜 License
-📌 This project is **open-source** and follows the **MIT License**.
 
 ---
 
